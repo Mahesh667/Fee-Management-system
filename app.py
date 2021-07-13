@@ -30,7 +30,7 @@ def view():
         sub_fee = request.form.get("sub_fee")
         due_fee = request.form.get("due_fee")
         tot_fee = request.form.get("tot_fee")
-        db.execute("INSERT into fee_record(firstname, lastname, session, submittedfee, duefee, totalfee) VALUES (:firstname, :lastname, :session, :submittedfee, :duefee, :totalfee)",
+        db.execute("INSERT into student(firstname, lastname, session, submittedfee, duefee, totalfee) VALUES (:firstname, :lastname, :session, :submittedfee, :duefee, :totalfee)",
                 {"firstname": fname, "lastname": lname, "session": session, "submittedfee": sub_fee, "duefee": due_fee, "totalfee": tot_fee})
         db.commit()
 
