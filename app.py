@@ -7,7 +7,7 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 
 app = Flask(__name__)
 ##postgress
-engine = create_engine("mysql+pymysql://root:free@localhost:3306/uob")
+engine = create_engine("mysql+pymysql://root:mahesh@localhost:3306/fee_management")
 
 
 db = scoped_session(sessionmaker(bind=engine))
@@ -35,10 +35,10 @@ def view():
         db.commit()
 
         # Get all records again
-        students = db.execute("SELECT * FROM fee_record").fetchall()
+        students = db.execute("SELECT * FROM student").fetchall()
         return render_template("view.html", students=students)
     else:
-        students = db.execute("SELECT * FROM fee_record").fetchall()
+        students = db.execute("SELECT * FROM student").fetchall()
         return render_template("view.html", students=students)
 
 
