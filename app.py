@@ -42,43 +42,7 @@ def view():
         return render_template("view.html", students=students)
 
 
-# @app.route("/update/<int:id>/", methods=['POST','GET'])
-# def update(id):
-#     if request.method=="POST":
-#         fname = request.form.get("fname")
-#         lname = request.form.get("lname")
-#         session = request.form.get("session")
-#         subfee = request.form.get("subfee")
-#         duefee = request.form.get("duefee")
-#         totfee = request.form.get("totfee")
-#         db.execute("Update fee SET firstname=:fname, lastname=:lname, Session=:session, submitted_fee=: subfee, due_fee=: duefee, total_fee=:totfee where id = :id",)
-#                 {"firstname": fname, "lastname": lname, "Session":session, "submitted_fee": subfee, "due_fee": duefee, "total_fee":totfee})
-#         db.commit()
-#         return redirect(url_for('intro'))
-#     else:
-#         stud = db.execute("SELECT * FROM fee WHERE id = :id", {"id": id}).fetchone()
-#         return render_template("update.html", stud=stud, id=id)
-#
-#
-# @app.route("/update_now/<int:id>/", methods=['POST', 'GET'])
-# def update_now(id):
-#     stud = db.execute("SELECT * FROM fee WHERE id = :id", {"id": id}).fetchone()
-#     if stud is None:
-#         return "No record found by ID = " + str(id) +". Kindly go back to <a href='/intro'> Intro </a>"
-#     else:
-#         stud = db.execute("delete FROM students WHERE id = " + str(id))
-#         db.commit()
-#         return redirect(url_for('intro'))
-# # @app.route("/delete/<int:id>/")
-# # def delete(id):
-# #     stud = db.execute("SELECT * FROM students WHERE id = :id", {"id": id}).fetchone()
-# #     if stud is None:
-# #         return "No record found by ID = " + str(id) +". Kindly go back to <a href='/intro'> Intro </a>"
-# #     else:
-# #         stud = db.execute("delete FROM students WHERE id = " + str(id))
-# #         db.commit()
-# #         return redirect(url_for('intro'))
-#
+
 
 if __name__ == "__main__":
     app.run(debug=True)
